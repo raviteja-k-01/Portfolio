@@ -6,6 +6,7 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
+import { Separator } from "@/components/ui/separator";
 
 const Index = () => {
   useEffect(() => {
@@ -22,10 +23,15 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
+        <Separator className="my-0" />
         <About />
+        <Separator className="my-0" />
         <Skills />
+        <Separator className="my-0" />
         <Projects />
+        <Separator className="my-0" />
         <Experience />
+        <Separator className="my-0" />
         <Contact />
       </main>
     </div>
