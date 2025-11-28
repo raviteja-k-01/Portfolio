@@ -5,7 +5,7 @@ const About = () => {
     {
       icon: GraduationCap,
       title: "Education",
-      content: "B.Tech in AI & Data Science\nJBIET, Hyderabad\nCGPA: 7.4/10",
+      content: "B.Tech in Artificial Intelligence and Data Science\nJBIET, Hyderabad\nCGPA: 7.4/10",
       gradient: "from-primary/20 to-primary/5",
     },
     {

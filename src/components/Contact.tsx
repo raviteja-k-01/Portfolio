@@ -50,11 +50,9 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
-      
+    <section id="contact" className="py-20 relative overflow-hidden bg-gradient-to-b from-background via-accent/20 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               Get In Touch
@@ -65,9 +63,9 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-            {/* Contact Form */}
-            <div className="glass-card p-6 sm:p-8 animate-slide-up">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            {/* Left Side - Contact Form */}
+            <div className="glass-card p-6 sm:p-8 animate-slide-up border-2 hover:border-primary/30 transition-all duration-300">
               <h3 className="text-2xl font-bold mb-6 text-foreground">Send a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
@@ -121,23 +119,34 @@ const Contact = () => {
               </form>
             </div>
 
-            {/* Contact Links */}
+            {/* Right Side - Social Links + Info */}
             <div className="space-y-6 animate-slide-up" style={{ animationDelay: "0.1s" }}>
-              <div className="glass-card p-6 sm:p-8">
-                <h3 className="text-2xl font-bold mb-6 text-foreground">Connect With Me</h3>
-                <div className="space-y-4">
-                  {contactLinks.map((link) => {
+              <div className="glass-card p-6 sm:p-8 border-2 hover:border-secondary/30 transition-all duration-300">
+                <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
+                  <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                  Connect With Me
+                </h3>
+                <div className="space-y-3">
+                  {contactLinks.map((link, index) => {
                     const Icon = link.icon;
                     return (
                       <Button
                         key={link.label}
                         variant="outline"
-                        className={`w-full justify-start text-left h-auto py-4 ${link.color} transition-all duration-300 hover:scale-105`}
+                        className={`w-full justify-start text-left h-auto py-4 px-6 ${link.color} transition-all duration-300 hover:scale-105 hover:shadow-lg group`}
                         asChild
+                        style={{ animationDelay: `${index * 0.1}s` }}
                       >
-                        <a href={link.href} target="_blank" rel="noopener noreferrer">
-                          <Icon className="mr-3 h-5 w-5 flex-shrink-0" />
-                          <span className="text-base">{link.label}</span>
+                        <a href={link.href} target="_blank" rel="noopener noreferrer" className="animate-fade-in">
+                          <div className="p-2 rounded-lg bg-background/50 mr-3 group-hover:bg-primary/20 transition-colors">
+                            <Icon className="h-5 w-5 flex-shrink-0" />
+                          </div>
+                          <div className="flex flex-col">
+                            <span className="text-base font-semibold">{link.label}</span>
+                            {link.label === "9347167572" && (
+                              <span className="text-xs text-muted-foreground">Click to call</span>
+                            )}
+                          </div>
                         </a>
                       </Button>
                     );
@@ -145,9 +154,12 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="glass-card p-6 sm:p-8 bg-gradient-to-br from-primary/10 to-secondary/10">
-                <h3 className="text-xl font-bold mb-3 text-foreground">Open to Opportunities</h3>
-                <p className="text-muted-foreground">
+              <div className="glass-card p-6 sm:p-8 bg-gradient-to-br from-primary/10 via-secondary/10 to-primary/5 border-2 border-primary/20">
+                <h3 className="text-xl font-bold mb-3 text-foreground flex items-center gap-2">
+                  <span className="text-2xl">💼</span>
+                  Open to Opportunities
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
                   I'm actively seeking opportunities in AI/ML and Data Science. 
                   Whether it's an internship, full-time role, or exciting project collaboration, 
                   I'd love to hear from you!
