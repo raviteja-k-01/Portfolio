@@ -12,7 +12,7 @@ const Projects = () => {
       gradient: "from-primary/20 to-secondary/20",
       links: {
         project: "#uber-project",
-        powerbi: "#",
+        powerbi: "/resume.pdf",
         github: "https://github.com/raviteja-k-01",
       },
     },
